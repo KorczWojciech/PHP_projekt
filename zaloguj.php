@@ -31,7 +31,7 @@ if($db->connect_errno!=0){
                 if($_SESSION['type']=='user'){
                     header("Location: zamowienia_user.php");
                 } elseif ($_SESSION['type']=='admin'){
-                    header("Location: zamowienia_admin.php");
+                    header("Location: zarzadzanie_admin.php");
                 }
             }else{
                 $_SESSION['error']='<span style="color: red">Nieprawidłwoy login lub hasło!</span>';

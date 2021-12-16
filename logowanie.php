@@ -5,7 +5,7 @@ if(isset($_SESSION['if_login'])&&$_SESSION['if_login']){
     if($_SESSION['type']=='user'){
         header('Location: zamowienia_user.php');
     }elseif ($_SESSION['type']=='admin'){
-        header('Location: zamowienia_admin.php');
+        header('Location: zarzadzanie_admin.php');
 }
 }
 ?>

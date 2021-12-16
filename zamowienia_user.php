@@ -2,6 +2,10 @@
 session_start();
 if(!$_SESSION['if_login']){
     header('Location: index.php');
+    exit();
+}else if($_SESSION['type']=='admin'){
+    header('Location: zarzadzanie_admin.php');
+    exit();
 }
 ?>
 <!doctype html>
