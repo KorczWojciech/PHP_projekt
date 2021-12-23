@@ -35,6 +35,7 @@ if($db->connect_errno!=0){
         }
     }
 }
+echo "<br><a href=zarzadzanie_admin.php><button>Wróć do widoku zarządzania!</button></a>";
 $db->close();
 ?>
 </body>

@@ -4,8 +4,6 @@ if(!$_SESSION['if_login']){
     header('Location: index.php');
     exit;
 }
-
-
 $db=new mysqli('localhost','root','','warzywniak');
 $produkt=$_POST['produkt'];
 $ilosc=$_POST['ilosc'];
@@ -27,3 +25,12 @@ if($db->connect_errno!=0){
 echo "<a href=zamowienia_user.php>Wróć do swojego profilu!</a>";
 $db->close();
 ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Warzywniak</title>
+</head>

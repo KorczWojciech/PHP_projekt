@@ -164,6 +164,6 @@ if(isset($_POST['login'])){
     <input type="submit" value="Zarejestruj się!">
 </form>
 <br>
-<a href="index.php">Wróć do strony głównej!</a>
+<a href="index.php"><button>Wróć do strony głównej!</button></a>
 </body>
 </html>

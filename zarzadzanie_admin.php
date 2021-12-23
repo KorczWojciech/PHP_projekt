@@ -12,7 +12,7 @@ if($_SESSION['type']!='admin' || !isset($_SESSION['if_login'])){
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Warzywniak</title>
 </head>
 <body>
 <h4><a href="wyloguj.php">Wyloguj się!</a></h4>
@@ -85,7 +85,12 @@ if($result3=$db->query($sql3)){
             "<td>" . $wiersz3['create_date'] . "</td>" .
             "<td>" . $wiersz3['purchaser_id'] . "</td>" .
             "<td>" . $wiersz3['status'] . "</td>" .
-            "<td style='background-color: antiquewhite'>" . "<form action='edytuj_zamowienie.php?id=" . $wiersz3['id'] . "' method='post'><input type='text' name='nowy_status'><input type='submit' value='Edytuj status'></form>" . "</td></tr>";
+            "<td style='background-color: antiquewhite'>" . "<form action='edytuj_zamowienie.php?id=" . $wiersz3['id'] . "' method='post'>
+<div><input type='radio' name='nowy_status' value='Anulowane' id='status_form1'><label for='status_form1'>Anulowane</label></div>
+<div><input type='radio' name='nowy_status' value='Kompletowanie' id='status_form2'><label for='status_form2'>Kompletowanie</label></div>
+<div><input type='radio' name='nowy_status' value='Gotowe do odbioru' id='status_form3'><label for='status_form3'>Gotowe do odbioru</label></div>
+<div><input type='radio' name='nowy_status' value='Zakończone' id='status_form4'><label for='status_form4'>Zakończone</label></div>
+<input type='submit' value='Edytuj status' name='edytuj_status_sub'></form>" . "</td></tr>";
         }echo "</table>";
     }
 }

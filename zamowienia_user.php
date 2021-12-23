@@ -15,7 +15,7 @@ if(!$_SESSION['if_login']){
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hurtownia warzyw</title>
+    <title>Warzywniak</title>
     <style>
         table, th, td{
             border: 1px solid black;
@@ -24,7 +24,7 @@ if(!$_SESSION['if_login']){
     </style>
 </head>
 <body>
-<h4><a href="wyloguj.php">Wyloguj się!</a></h4>
+<a href="wyloguj.php"><button>Wyloguj się!</button></a> &nbsp <a href="dane_konta.php" style="text-:20px"><button>Zmień dane konta!</button></a><br><br>
 <?php
 echo "<table style='text-align: center'>
     <tr>
@@ -50,7 +50,7 @@ if($db->connect_errno!=0){
 
         }
     }
-    $sql2="SELECT * FROM orders WHERE purchaser_id=".$_SESSION['id']." AND status!='zrealizowane'";
+    $sql2="SELECT * FROM orders WHERE purchaser_id=".$_SESSION['id']." AND status!='Zakończone'";
     $result2=$db->query($sql2);
     echo "</table>
 <br>Twoje NOWE zamówienia:<table style='text-align: center'>
@@ -72,7 +72,7 @@ if($db->connect_errno!=0){
             "<td>".$wiersz2['status']."</td></tr>";
         }
     }
-    $sql3="SELECT * FROM orders WHERE purchaser_id=".$_SESSION['id']." AND status='zrealizowane'";
+    $sql3="SELECT * FROM orders WHERE purchaser_id=".$_SESSION['id']." AND status='Zakończone'";
 $result3=$db->query($sql3);
     echo "</table>
 <br>Twoje ZREALIZOWANE zamówienia:<table style='text-align: center'>
