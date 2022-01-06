@@ -22,9 +22,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/index.php">Strona główna</a>
+                    <a class="nav-link active" aria-current="page" href="/PHP_projekt">Strona główna</a>
             </ul>
-            <?php if($_SESSION['if_login']) {?>
+            <?php if(isset($_SESSION['if_login'])){
+            if($_SESSION['if_login']) {?>
             <div class="navbar-nav my-2 my-lg-0">
                 <a class="nav-link" href="dane_konta.php" >Zmień dane konta!</a>
                 <a class="nav-link" href="wyloguj.php">Wyloguj</a>
@@ -33,9 +34,13 @@
             <?php } else{?>
 
             <div class="navbar-nav my-2 my-lg-0">
-                <a class="nav-link" href="PHP_projekt/logowanie.php">Zaloguj</a>
+                <a class="nav-link" href="logowanie.php">Zaloguj</a>
             </div>
-            <?php }?>
+            <?php }} else{?>
+                <div class="navbar-nav my-2 my-lg-0">
+                    <a class="nav-link" href="logowanie.php">Zaloguj</a>
+                </div>
+           <?php }?>
         </div>
     </div>
 </nav>

@@ -1,13 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<?php
+session_start();
+include('template.php');
+?>
 <body>
+<section style="margin: 10px 50px 0 50px">
 <h1>Witamy w naszym sklepie z warzywami!</h1>
 <p>
     Zajmujemy się sprzedażą warzyw....<br/><br/>
@@ -26,7 +22,8 @@
     Maecenas aliquet lorem suscipit ligula maximus maximus. Duis vel metus dictum, ullamcorper nunc at, pulvinar tortor. Nunc vulputate sapien ac nulla dictum dignissim. Proin quis dapibus ligula, nec lacinia nisl. Morbi ut nulla nibh. Fusce volutpat ante rhoncus volutpat interdum. Quisque sapien dolor, blandit in condimentum eu, elementum a urna. Morbi pretium non ante ac molestie. Pellentesque laoreet massa at lectus tristique, eget ornare dolor tincidunt. Aenean tempor orci id magna finibus, sed blandit tellus vulputate. Morbi mattis metus in eros commodo, id auctor urna sodales. Phasellus augue erat, pulvinar a efficitur a, suscipit sit amet lacus. Phasellus consectetur tellus a condimentum feugiat. Suspendisse condimentum lectus sed leo accumsan viverra. Morbi in placerat purus.
 </p><br/><br/>
 <h3>
-<a href="logowanie.php">Zaloguj się, aby złożyć zamówienie</a>
+<a href="logowanie.php"><button class="btn btn-primary"> Zaloguj się, aby złożyć zamówienie</button></a>
 </h3>
+</section>
 </body>
 </html>

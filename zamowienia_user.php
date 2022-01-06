@@ -9,11 +9,10 @@ if(!$_SESSION['if_login']){
 }
 include ('template.php');
 ?>
-<html>
 <body>
-<div style="margin: 20px">
+<div>
 <?php
-echo "<table class='table table-striped' style='text-align: center'>
+echo "<table class='table table-striped admin' style='text-align: center' align='center'>
     <tr>
     <th>id</th>
     <th>Produkt</th>
@@ -33,14 +32,14 @@ if($db->connect_errno!=0){
             "<td>".$wiersz['name']."</td>".
             "<td>".$wiersz['quantity']."</td>".
             "<td>".$wiersz['price']."</td>".
-            "<td style='background-color: antiquewhite'>"."<form action='zamow.php?id=".$wiersz['id']."' method='post'><input type='number' name='order_quantity' min='1' max=$max style='background-color: antiquewhite'> <input type='submit' value='Zamów!'></form>"."</td></tr>";
+            "<td style='background-color: antiquewhite'>"."<form action='zamow.php?id=".$wiersz['id']."' method='post'><input type='number' name='order_quantity' min='1' max=$max style='background-color: antiquewhite' required> <input type='submit' class='btn btn-primary' value='Zamów!'></form>"."</td></tr>";
 
         }
     }
     $sql2="SELECT * FROM orders WHERE purchaser_id=".$_SESSION['id']." AND status!='Zakończone'";
     $result2=$db->query($sql2);
     echo "</table>
-<br>Twoje NOWE zamówienia:<table class='table table-striped' style='text-align: center'>
+<br><div align='center'>Twoje NOWE zamówienia:</div><table class='table table-striped admin' style='text-align: center' align='center'>
     <tr>
     <th>Numer zamówienia</th>
     <th>Produkt</th>
@@ -62,7 +61,7 @@ if($db->connect_errno!=0){
     $sql3="SELECT * FROM orders WHERE purchaser_id=".$_SESSION['id']." AND status='Zakończone'";
 $result3=$db->query($sql3);
     echo "</table>
-<br>Twoje ZREALIZOWANE zamówienia:<table class='table table-striped' style='text-align: center'>
+<br><div align='center'>Twoje ZREALIZOWANE zamówienia:</div><table class='table table-striped admin' style='text-align: center' align='center'>
     <tr>
     <th>Numer zamówienia</th>
     <th>Produkt</th>
@@ -87,4 +86,4 @@ $db->close();
 ?>
 </div>
 </body>
-</html>
+

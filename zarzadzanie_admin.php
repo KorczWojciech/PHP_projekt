@@ -7,9 +7,9 @@ if($_SESSION['type']!='admin' || !isset($_SESSION['if_login'])){
 include('template.php');
 ?>
 <body>
-<div align="center">
+<div>
 <?php
-echo "<table class='table table-striped admin' border='1'>
+echo "<table class='table table-striped' style='text-align: center;width: 50%' align='center'>
     <tr>
     <th>id</th>
     <th>Produkt</th>
@@ -33,15 +33,15 @@ if($db->connect_errno!=0){
     }
 
     echo "</table>";
-    echo "<br><a href='dodawanie_produktu.php'><button class='btn btn-primary'>Dodaj nowy produkt!</button></a><br>";
+    echo "<br><div align='center'><a href='dodawanie_produktu.php'><button class='btn btn-success'>Dodaj nowy produkt!</button></a></div><br>";
 
-    echo "<br><table style='text-align: center' class='table table-striped admin' border='1'>
+    echo "<br><table class='table table-striped' style='text-align: center;width: 50%' align='center'>
     <tr>
     <th>id</th>
     <th>Login</th>
     <th>e-mail</th>
     <th>Typ konta</th>
-    <th style='background-color: antiquewhite'><button class='btn btn-primary'>Edytuj konto</button></th>
+    <th style='background-color: antiquewhite'>Edytuj konto</th>
     </tr>";
     $sql2='SELECT * FROM users';
     if($result2=$db->query($sql2)){
@@ -56,7 +56,7 @@ if($db->connect_errno!=0){
               }
         }echo "</table><br>";
     }
-    echo "<table style='text-align: center' class='table table-striped admin' border='1'>
+    echo "<table class='table table-striped' style='text-align: center;width: 80%' align='center'>
     <tr>
     <th>id</th>
     <th>Produkt</th>

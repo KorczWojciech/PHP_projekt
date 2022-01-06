@@ -4,6 +4,7 @@ if(isset($_SESSION['if_login'])&&$_SESSION['if_login']){
     header('Location: index.php');
     exit();
 }
+include('template.php');
 
 if(isset($_POST['login'])){
     $all_right = true;
@@ -72,7 +73,8 @@ if(isset($_POST['login'])){
             if($all_right){
                 if($db->query("INSERT INTO users VALUES (NULL, '$login', '$hash_password', '$email', 'user')")){
                     $_SESSION['register_correct']=true;
-                    header('Location: welcome.php');
+                    $_SESSION['register_correct_info']='Konto założone prawidłowo! Zaloguj się!';
+                    header('Location: logowanie.php');
                 }else{
                     throw new Exception($db->error);
                 }
@@ -87,73 +89,52 @@ if(isset($_POST['login'])){
 }
 
 ?>
-
-
-
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hurtownia warzyw</title>
-
-    <style>
-        .error
-        {
-            color:red;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
 <body>
+<div align="center">
 <h2>Załóż konto!</h2>
 <form method="post">
-    Login: <br/> <input type="text" name="login" value="<?php
+    Login: <br> <input type="text" name="login" value="<?php
     if(isset($_SESSION['tmp_login'])){
         echo $_SESSION['tmp_login'];
         unset($_SESSION['tmp_login']);
     }
-    ?>"/><br/>
+    ?>"/><br>
     <?php
     if(isset($_SESSION['login_error'])){
         echo '<div class="error">'.$_SESSION['login_error'].'</div>';
         unset($_SESSION['login_error']);
     }
     ?>
-    Hasło: <br/> <input type="password" name="password" value="<?php
+    Hasło: <br> <input type="password" name="password" value="<?php
     if(isset($_SESSION['tmp_password1'])){
         echo $_SESSION['tmp_password1'];
         unset($_SESSION['tmp_password1']);
     }
-    ?>"/><br/>
+    ?>"/><br>
     <?php
     if(isset($_SESSION['password_error'])){
         echo '<div class="error">'.$_SESSION['password_error'].'</div>';
         unset($_SESSION['password_error']);
     }
-    ?><br>
-    Powtórz hasło: <br/> <input type="password" name="password_check" value="<?php
+    ?>
+    Powtórz hasło: <br> <input type="password" name="password_check" value="<?php
     if(isset($_SESSION['tmp_password2'])){
         echo $_SESSION['tmp_password2'];
         unset($_SESSION['tmp_password2']);
     }
-    ?>"/><br/>
-    E-mail: <br/> <input type="email" name="email" value="<?php
+    ?>"/><br>
+    E-mail: <br> <input type="email" name="email" value="<?php
     if(isset($_SESSION['tmp_email'])){
         echo $_SESSION['tmp_email'];
         unset($_SESSION['tmp_email']);
     }
-    ?>"/><br/>
+    ?>"/><br>
     <?php
     if(isset($_SESSION['email_error'])){
         echo '<div class="error">'.$_SESSION['email_error'].'</div>';
         unset($_SESSION['email_error']);
     }
-    ?><br/>
+    ?><br>
     <input type="checkbox" name="regulations"> Akceptuję <a href="regulamin.php">regulamin</a><br>
     <?php
     if(isset($_SESSION['regulations_error'])){
@@ -161,9 +142,10 @@ if(isset($_POST['login'])){
         unset($_SESSION['regulations_error']);
     }
     ?>
-    <input type="submit" value="Zarejestruj się!">
+    <input type="submit" class="btn btn-primary" value="Zarejestruj się!">
 </form>
 <br>
-<a href="index.php"><button>Wróć do strony głównej!</button></a>
+<a href="index.php"><button class="btn btn-success">Wróć do strony głównej!</button></a>
+</div>
 </body>
 </html>

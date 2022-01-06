@@ -4,6 +4,11 @@ if(!$_SESSION['if_login']){
     header('Location: index.php');
     exit();
 }
+if(!isset($_POST['order_quantity'])){
+    header('Location: zamowienia_user.php');
+    exit();
+}
+include('template.php');
 $db=new mysqli('localhost','root','','warzywniak');
 if($db->connect_errno!=0){
     echo 'Błąd połączenia z bazą dancyh!';
@@ -12,13 +17,13 @@ if($db->connect_errno!=0){
     if ($result = $db->query($sql)){
         if($wiersz=$result->fetch_assoc()){
 
-            echo "<h3>Czy potwierdzasz zamówienie?</h3><br/>";
+            echo "<div align='center'><h3>Czy potwierdzasz zamówienie?</h3><br/>";
             echo "<form action='stworz_zamowienie.php' method='post'><br>
-            Produkt: <input type='text' name='produkt' value='".$wiersz['name']."' readonly><br>
-            Ilość: <input type='text' name='ilosc' value='".$_POST['order_quantity']."' readonly><br>
-            Kwota zamówienia: <input type='text' name='kwota' value='".$_POST['order_quantity']*$wiersz['price']."' readonly><br>
-            <input type='submit' value='Stwórz zamówienie!'>
-</form>";
+            Produkt: <br><input type='text' name='produkt' value='".$wiersz['name']."' readonly><br>
+            Ilość: <br><input type='text' name='ilosc' value='".$_POST['order_quantity']."' readonly><br>
+            Kwota zamówienia: <br><input type='text' name='kwota' value='".$_POST['order_quantity']*$wiersz['price']."' readonly><br>
+            <input type='submit' style='margin-top: 5px' class='btn btn-primary' value='Stwórz zamówienie!'>
+</form></div>";
         }
     }
 }

@@ -8,18 +8,17 @@ if(isset($_SESSION['if_login'])&&$_SESSION['if_login']){
         header('Location: zarzadzanie_admin.php');
 }
 }
+include ('template.php');
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+
 <body>
-Nie masz jeszcze konta - <a href="rejestracja.php"><b>Zarejestruj się!!!</b></a><br/><br/>
+<div align="center">
+    <?php if(isset($_SESSION['register_correct_info'])){
+        echo "<lebel class='positiv'>".$_SESSION['register_correct_info']."</lebel><br>";
+        unset($_SESSION['register_correct_info']);
+    }
+?>
+    <label style="font-weight: bold;font-size: 18px;margin-top: 5px">Nie masz jeszcze konta - </label><a href="rejestracja.php"><button class="btn btn-primary">Zarejestruj się!!!</button></a><br/><br/>
     <form action="zaloguj.php" method="post">
         Login: <br/> <input type="text" name="login"/><br/>
         Hasło: <br/> <input type="password" name="password"/><br/><br/>
@@ -27,8 +26,9 @@ Nie masz jeszcze konta - <a href="rejestracja.php"><b>Zarejestruj się!!!</b></a
     </form>
 <?php
 if(isset($_SESSION['error'])&&($_SESSION['error']!="")){
-    echo $_SESSION['error'];
+    echo "<label class='error'>".$_SESSION['error']."</label>";
 }
 ?>
+</div>
 </body>
 </html>
