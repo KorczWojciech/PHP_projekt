@@ -4,3 +4,11 @@ body {
     margin-bottom: 20px;
     margin-top: 20px;
 }
+.error{
+    color: red;
+    font-weight: bold;
+}
+.positiv{
+    color: green;
+    font-weight: bold;
+}

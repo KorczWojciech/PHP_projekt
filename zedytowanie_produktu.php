@@ -4,6 +4,10 @@ if ($_SESSION['type'] != 'admin' || !isset($_SESSION['if_login'])) {
     header('Location: index.php');
     exit();
 }
+include('template.php');
+?>
+
+<?php
 $db=new mysqli('localhost','root','','warzywniak');
 $produkt=htmlentities($_POST['produkt'],ENT_QUOTES,"UTF-8");
 $ilosc=htmlentities($_POST['ilosc'],ENT_QUOTES,"UTF-8");
@@ -15,21 +19,11 @@ if($db->connect_errno!=0){
         $sql="UPDATE products SET name='".$produkt."',quantity=".$ilosc.",price=".$kwota." WHERE id='$id'";
         $result= $db->query($sql);
         if($result){
-            echo "<h3>Rekord zedytowany prawidłowo!</h3>";
+            echo "<div align='center'><label class='positiv'>Rekord zedytowany prawidłowo!</label>";
         }else{
-            echo '<h3>Edycja rekordu nie powiodła się!</h3>';
+            echo "'<div align='center'><label class='error'>Edycja rekordu nie powiodła się!</label>";
         }
         }
-    echo "<a href=zarzadzanie_admin.php>Wróć do widoku zarządzania!</a>";
+    echo "<br><a href=zarzadzanie_admin.php><button class='btn btn-success'> Wróć do widoku zarządzania!</button></a></div>";
 $db->close();
-
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Warzywniak</title>
-</head>

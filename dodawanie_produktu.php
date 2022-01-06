@@ -4,23 +4,19 @@ if ($_SESSION['type'] != 'admin' || !isset($_SESSION['if_login'])) {
     header('Location: index.php');
     exit();
 }
+include ('template.php');
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Warzywniak</title>
-</head>
 <body>
+<div align="center">
 <form action= 'dodaj_produkt.php' method='post'><br>
-    Produkt: <input type='text' name='produkt'><br>
-    Ilość: <input type='text' name='ilosc'><br>
-    Cena: <input type='text' name='cena'><br>
-    <input type='submit' value='Dodaj produkt!' name="dodaj_produkt">
+    Produkt: <br>
+    <input type='text' name='produkt'><br>
+    Ilość: <br>
+    <input type='text' name='ilosc'><br>
+    Cena: <br>
+    <input type='text' name='cena'><br>
+    <input type='submit' value='Dodaj produkt!' style="margin-top: 5px" class="btn btn-primary" name="dodaj_produkt">
 </form>
-
+</div>
 </body>
 </html>
