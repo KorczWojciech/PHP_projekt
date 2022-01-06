@@ -4,20 +4,12 @@ if($_SESSION['type']!='admin' || !isset($_SESSION['if_login'])){
     header('Location: index.php');
     exit();
 }
+include('template.php');
 ?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Warzywniak</title>
-</head>
 <body>
-<h4><a href="wyloguj.php">Wyloguj się!</a></h4>
+<div align="center">
 <?php
-echo "<table style='text-align: center' border='1'>
+echo "<table class='table table-striped admin' border='1'>
     <tr>
     <th>id</th>
     <th>Produkt</th>
@@ -36,20 +28,20 @@ if($db->connect_errno!=0){
                 "<td>" . $wiersz['name'] . "</td>" .
                 "<td>" . $wiersz['quantity'] . "</td>" .
                 "<td>" . $wiersz['price'] . "</td>" .
-                "<td style='background-color: antiquewhite'>" . "<form action='edytuj_produkt.php?id=" . $wiersz['id'] . "' method='post'><input type='submit' value='Edytuj!' name='edytuj_produkt'></form>" . "</td></tr>";
+                "<td style='background-color: antiquewhite'>" . "<form action='edytuj_produkt.php?id=" . $wiersz['id'] . "' method='post'><input type='submit' class='btn btn-primary' value='Edytuj!' name='edytuj_produkt'></form>" . "</td></tr>";
         }
     }
 
     echo "</table>";
-    echo "<br><a href='dodawanie_produktu.php'><button>Dodaj nowy produkt!</button></a><br>";
+    echo "<br><a href='dodawanie_produktu.php'><button class='btn btn-primary'>Dodaj nowy produkt!</button></a><br>";
 
-    echo "<br><table style='text-align: center' border='1'>
+    echo "<br><table style='text-align: center' class='table table-striped admin' border='1'>
     <tr>
     <th>id</th>
     <th>Login</th>
     <th>e-mail</th>
     <th>Typ konta</th>
-    <th style='background-color: antiquewhite'>Edytuj konto</th>
+    <th style='background-color: antiquewhite'><button class='btn btn-primary'>Edytuj konto</button></th>
     </tr>";
     $sql2='SELECT * FROM users';
     if($result2=$db->query($sql2)){
@@ -58,13 +50,13 @@ if($db->connect_errno!=0){
              "<td>".$wiersz2['login']."</td>".
              "<td>".$wiersz2['email']."</td>".
              "<td>".$wiersz2['type']."</td>";
-              if($wiersz2['type']=='user'){ echo "<td style='background-color: antiquewhite'><form action='typ_usera.php?id=".$wiersz2['id']."' method='post'><input type='submit' value='Awansuj!' name='awansuj'></form></td>";
-              }elseif ($wiersz2['type']=='admin'){ echo "<td style='background-color: antiquewhite'><form action='typ_usera.php?id=".$wiersz2['id']."' method='post'><input type='submit' value='Degraduj!' name='degraduj' style='color: red'></form></td>";
+              if($wiersz2['type']=='user'){ echo "<td style='background-color: antiquewhite'><form action='typ_usera.php?id=".$wiersz2['id']."' method='post'><input type='submit' value='Awansuj!' class='btn btn-primary' name='awansuj'></form></td>";
+              }elseif ($wiersz2['type']=='admin'){ echo "<td style='background-color: antiquewhite'><form action='typ_usera.php?id=".$wiersz2['id']."' method='post'><input type='submit' value='Degraduj!' class='btn btn-primary' name='degraduj' style='color: red'></form></td>";
 
               }
         }echo "</table><br>";
     }
-    echo "<table style='text-align: center' border='1'>
+    echo "<table style='text-align: center' class='table table-striped admin' border='1'>
     <tr>
     <th>id</th>
     <th>Produkt</th>
@@ -90,12 +82,13 @@ if($result3=$db->query($sql3)){
 <div><input type='radio' name='nowy_status' value='Kompletowanie' id='status_form2'><label for='status_form2'>Kompletowanie</label></div>
 <div><input type='radio' name='nowy_status' value='Gotowe do odbioru' id='status_form3'><label for='status_form3'>Gotowe do odbioru</label></div>
 <div><input type='radio' name='nowy_status' value='Zakończone' id='status_form4'><label for='status_form4'>Zakończone</label></div>
-<input type='submit' value='Edytuj status' name='edytuj_status_sub'></form>" . "</td></tr>";
+<input type='submit' value='Edytuj status' class='btn btn-primary' name='edytuj_status_sub'></form>" . "</td></tr>";
         }echo "</table>";
     }
 }
 
 $db->close();
 ?>
+</div>
 </body>
 </html>

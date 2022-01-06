@@ -12,3 +12,9 @@ body {
     color: green;
     font-weight: bold;
 }
+.admin{
+    align: center;
+    text-align: center;
+    margin-top: 10px;
+    max-width: 80%;
+}
