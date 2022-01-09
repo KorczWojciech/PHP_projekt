@@ -2,7 +2,7 @@
 session_start();
 include('template.php');
 ?>
-<body class="container-fluid">
+<body>
 <section style="margin: 10px 50px 0 50px">
 <h1>Witamy w naszym sklepie z warzywami!</h1>
 <p>
