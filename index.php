@@ -2,7 +2,7 @@
 session_start();
 include('template.php');
 ?>
-<body>
+<body class="container-fluid">
 <section style="margin: 10px 50px 0 50px">
 <h1>Witamy w naszym sklepie z warzywami!</h1>
 <p>
@@ -20,10 +20,8 @@ include('template.php');
     <br/>
     <br/>
     Maecenas aliquet lorem suscipit ligula maximus maximus. Duis vel metus dictum, ullamcorper nunc at, pulvinar tortor. Nunc vulputate sapien ac nulla dictum dignissim. Proin quis dapibus ligula, nec lacinia nisl. Morbi ut nulla nibh. Fusce volutpat ante rhoncus volutpat interdum. Quisque sapien dolor, blandit in condimentum eu, elementum a urna. Morbi pretium non ante ac molestie. Pellentesque laoreet massa at lectus tristique, eget ornare dolor tincidunt. Aenean tempor orci id magna finibus, sed blandit tellus vulputate. Morbi mattis metus in eros commodo, id auctor urna sodales. Phasellus augue erat, pulvinar a efficitur a, suscipit sit amet lacus. Phasellus consectetur tellus a condimentum feugiat. Suspendisse condimentum lectus sed leo accumsan viverra. Morbi in placerat purus.
-</p><br/><br/>
-<h3>
-<a href="logowanie.php"><button class="btn btn-primary"> Zaloguj się, aby złożyć zamówienie</button></a>
-</h3>
+</p><br>
+<a href="logowanie.php"><button class="btn btn-primary"> Zaloguj się, aby złożyć zamówienie</button></a><br>
 </section>
 </body>
 </html>
