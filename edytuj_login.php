@@ -20,7 +20,8 @@ if(isset($_POST['nowy_login'])) {
         header('Location: dane_konta.php');
     }
     try{
-        $db=new mysqli('localhost','root','','warzywniak');
+        include ('database.php');
+        $db=new mysqli($host,$database_user,$database_password,$database_name);
         if ($db->connect_errno!=0){
             throw new Exception(mysqli_connect_errno());
         }else{

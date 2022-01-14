@@ -10,11 +10,11 @@ include ('template.php');
 <div align="center">
 <form action= 'dodaj_produkt.php' method='post'><br>
     Produkt: <br>
-    <input type='text' name='produkt'><br>
+    <input type='text' name='produkt' required><br>
     Ilość: <br>
-    <input type='text' name='ilosc'><br>
+    <input type='text' name='ilosc' required><br>
     Cena: <br>
-    <input type='text' name='cena'><br>
+    <input type='text' name='cena' required><br>
     <input type='submit' value='Dodaj produkt!' style="margin-top: 5px" class="btn btn-primary" name="dodaj_produkt">
 </form>
 </div>

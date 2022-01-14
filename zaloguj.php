@@ -5,8 +5,8 @@ if(!isset($_POST['login'])||(!isset($_POST['password']))){
     header('Location: logowanie.php');
     exit();
 }
-
-$db= new mysqli('localhost','root','','warzywniak');
+include ('database.php');
+$db=new mysqli($host,$database_user,$database_password,$database_name);
 
 if($db->connect_errno!=0){
     echo 'Błąd połączenia z bazą danych!';

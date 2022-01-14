@@ -23,7 +23,8 @@ if(isset($_POST['nowe_haslo1'])&&isset($_POST['nowe_haslo2'])) {
     }
     $hash_password=md5($password1);
     try {
-        $db = new mysqli('localhost', 'root', '', 'warzywniak');
+        include ('database.php');
+        $db=new mysqli($host,$database_user,$database_password,$database_name);
         if ($db->connect_errno != 0) {
             throw new Exception(mysqli_connect_errno());
         } else {

@@ -5,7 +5,8 @@ if(!$_SESSION['if_login']){
     exit;
 }
 include('template.php');
-$db=new mysqli('localhost','root','','warzywniak');
+include ('database.php');
+$db=new mysqli($host,$database_user,$database_password,$database_name);
 $produkt=$_POST['produkt'];
 $ilosc=$_POST['ilosc'];
 $kwota=$_POST['kwota'];

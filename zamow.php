@@ -9,7 +9,8 @@ if(!isset($_POST['order_quantity'])){
     exit();
 }
 include('template.php');
-$db=new mysqli('localhost','root','','warzywniak');
+include ('database.php');
+$db=new mysqli($host,$database_user,$database_password,$database_name);
 if($db->connect_errno!=0){
     echo 'Błąd połączenia z bazą dancyh!';
 }else {

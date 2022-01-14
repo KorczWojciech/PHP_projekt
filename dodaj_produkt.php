@@ -5,7 +5,8 @@ if ($_SESSION['type'] != 'admin' || !isset($_SESSION['if_login']) ||!isset($_POS
     exit();
 }
 include ('template.php');
-$db=new mysqli('localhost','root','','warzywniak');
+include ('database.php');
+$db=new mysqli($host,$database_user,$database_password,$database_name);
 $produkt=htmlentities($_POST['produkt'],ENT_QUOTES,"UTF-8");
 $ilosc=htmlentities($_POST['ilosc'],ENT_QUOTES,"UTF-8");
 $cena=htmlentities($_POST['cena'],ENT_QUOTES,"UTF-8");

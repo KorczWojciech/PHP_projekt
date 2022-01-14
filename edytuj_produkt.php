@@ -9,7 +9,8 @@ include('template.php');
 <body>
 <div align="center">
 <?php
-$db=new mysqli('localhost','root','','warzywniak');
+include ('database.php');
+$db=new mysqli($host,$database_user,$database_password,$database_name);
 if($db->connect_errno!=0){
     echo 'Błąd połączenia z bazą dancyh!';
 }else {
@@ -18,9 +19,9 @@ if($db->connect_errno!=0){
         if($wiersz=$result->fetch_assoc()){
             echo "<form action= 'zedytowanie_produktu.php' method='post'><br>
             Id: <br><input type='number' name='id' value='".$_GET['id']."' readonly><br>
-            Produkt: <br><input type='text' name='produkt' value='".$wiersz['name']."'><br>
-            Ilość: <br><input type='text' name='ilosc' value='".$wiersz['quantity']."'><br>
-            Cena: <br><input type='text' name='kwota' value='".$wiersz['price']."'><br>
+            Produkt: <br><input type='text' name='produkt' value='".$wiersz['name']."' required><br>
+            Ilość: <br><input type='text' name='ilosc' value='".$wiersz['quantity']."' required><br>
+            Cena: <br><input type='text' name='kwota' value='".$wiersz['price']."' required><br>
             <input type='submit' class='btn btn-primary' style='margin-top: 5px' value='Edytuj rekord!'>
 </form>";
         }
